@@ -67,10 +67,27 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ### Serveurs DNS AdZ-Vanced
 
-| Type | Adresse IP | Fonction |
-|------|-----------|----------|
-| DNS Primaire | `185.228.168.168` | Serveur principal avec filtrage |
-| DNS Secondaire | `185.228.169.168` | Serveur de secours |
+### 📱 Android, iOS
+
+- <b>Hostname</b> : `a83732.dns.nextdns.io`
+
+### 🖥 PC, Mac, Linux
+
+#### IPv4
+
+- <b>DNS Primaire</b> : `45.90.28.219`
+- <b>DNS Secondaire</b> : `45.90.30.219`
+
+#### IPv6
+
+- <b>DNS Primaire</b> : `2a07:a8c0::a8:3732`
+- <b>DNS Secondaire</b> : `2a07:a8c1::a8:3732`
+
+### 🌐 Navigateur (ou autre)
+
+- <b>DNS-over-TLS/QUIC</b> : `a83732.dns.nextdns.io`
+- <b>DNS-over-HTTPS</b> : `https://dns.nextdns.io/a83732`
+
 
 ### Adaptateurs Réseau Pris en Charge
 
