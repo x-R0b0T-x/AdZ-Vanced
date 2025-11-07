@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/x-R0b0T-x/AdZ-Vanced/main/Logo.jpg" alt="AdZ-Vanced Logo" width="300"/>
+  <img src="https://raw.githubusercontent.com/x-R0b0T-x/AdZ-Vanced/main/Logo.jpg" alt="AdZ-Vanced Logo" width="200"/>
 </p>
 <p align="center">
   <b>🛡️ AdZ-Vanced - Configuration DNS Professionnelle</b>
@@ -15,28 +15,29 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ## ✨ Fonctionnalités Principales
 
-- 🖥️ **Interface Moderne** : Design épuré et ergonomique pour une expérience utilisateur optimale
-- 💎 **Validation Intelligente** : Vérification automatique de la configuration DNS
-- 💾 **Sauvegarde Automatique** : Protection de vos paramètres personnalisés
-- ♻️ **Restauration Rapide** : Retour à la configuration par défaut en un clic
-- 📋 **Journal d'Opérations** : Suivi détaillé de toutes les modifications effectuées
-- 🔐 **Gestion des Privilèges** : Contrôle sécurisé des droits administrateur
+- 🖥️ <b>Interface Moderne</b> : Design épuré et ergonomique pour une expérience utilisateur optimale
+- 💎 <b>Validation Intelligente</b> : Vérification automatique de la configuration DNS
+- 💾 <b>Sauvegarde Automatique</b> : Protection de vos paramètres personnalisés
+- ♻️ <b>Restauration Rapide</b> : Retour à la configuration par défaut en un clic
+- 📋 <b>Journal d'Opérations</b> : Suivi détaillé de toutes les modifications effectuées
+- 🔐 <b>Gestion des Privilèges</b> : Contrôle sécurisé des droits administrateur
 
 ---
 
 ## 🚀 Installation et Démarrage
 
 ### Prérequis
+
 - Windows 10/11 (64 bits)
 - Droits administrateur
 - PowerShell 5.1 ou supérieur
 
 ### Procédure d'Installation
 
-1. **Téléchargez** le fichier `AdZ-Vanced.ps1`
-2. **Clic droit** sur le fichier → **Exécuter avec PowerShell**
-3. **Acceptez** l'élévation des privilèges administrateur
-4. **Lancez** l'interface graphique
+1. <b>Téléchargez</b> le fichier `AdZ-Vanced.ps1`
+2. <b>Clic droit</b> sur le fichier → <b>Exécuter avec PowerShell</b>
+3. <b>Acceptez</b> l'élévation des privilèges administrateur
+4. <b>Lancez</b> l'interface graphique
 
 ---
 
@@ -44,21 +45,21 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ### ⚙️ Configuration DNS AdZ-Vanced
 
-1. Cliquez sur **"⚙️ INSTALLER DNS AdZ-Vanced"**
+1. Cliquez sur <b>"⚙️ INSTALLER DNS AdZ-Vanced"</b>
 2. Patientez pendant la validation automatique des serveurs
 3. Suivez les instructions affichées dans le journal d'opérations
-4. Confirmation : *"Configuration DNS AdZ-Vanced appliquée avec succès !"*
+4. Confirmation : "Configuration DNS AdZ-Vanced appliquée avec succès !"
 
 ### 🔄 Restauration des Paramètres par Défaut
 
-1. Cliquez sur **"🔄 RESTAURER DNS Par Défaut"**
+1. Cliquez sur <b>"🔄 RESTAURER DNS Par Défaut"</b>
 2. Confirmez l'opération de restauration
 3. Vérifiez le message de confirmation dans le journal
 
 ### 💾 Gestion des Sauvegardes
 
-- **Sauvegarde** : Les paramètres sont automatiquement sauvegardés avant chaque modification
-- **Restauration** : Possibilité de restaurer une sauvegarde antérieure depuis le menu
+- <b>Sauvegarde</b> : Les paramètres sont automatiquement sauvegardés avant chaque modification
+- <b>Restauration</b> : Possibilité de restaurer une sauvegarde antérieure depuis le menu
 
 ---
 
@@ -82,10 +83,10 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ## 🛡️ Sécurité et Confidentialité
 
-- ✅ **Aucune collecte de données** personnelles
-- ✅ **Code source transparent** et vérifiable
-- ✅ **Exécution locale** : aucune connexion externe requise
-- ✅ **Respect de la vie privée** : configuration 100% locale
+- ✅ <b>Aucune collecte de données</b> personnelles
+- ✅ <b>Code source transparent</b> et vérifiable
+- ✅ <b>Exécution locale</b> : aucune connexion externe requise
+- ✅ <b>Respect de la vie privée</b> : configuration 100% locale
 
 ---
 
@@ -93,16 +94,19 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ### Problèmes Courants
 
-**L'interface ne se lance pas**
+<b>L'interface ne se lance pas</b>
+
 - Vérifiez que PowerShell est bien en version 5.1 minimum : `$PSVersionTable.PSVersion`
 - Assurez-vous d'exécuter le script avec les droits administrateur
 
-**La configuration DNS ne s'applique pas**
+<b>La configuration DNS ne s'applique pas</b>
+
 - Désactivez temporairement votre antivirus
 - Vérifiez que l'adaptateur réseau est correctement détecté
 - Consultez le journal d'opérations pour plus de détails
 
-**Message d'erreur lors de la sauvegarde**
+<b>Message d'erreur lors de la sauvegarde</b>
+
 - Vérifiez l'espace disque disponible
 - Assurez-vous que le dossier de sauvegarde est accessible
 
@@ -111,6 +115,7 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 ## 📝 Notes de Version
 
 ### Version 1.2 (Actuelle)
+
 - Interface graphique modernisée
 - Amélioration de la validation DNS
 - Optimisation des performances
@@ -127,24 +132,20 @@ Ce projet est distribué sous licence libre. Vous êtes autorisé à l'utiliser,
 ## 💬 Support et Contact
 
 Pour toute question, suggestion ou signalement de bug :
-- 📧 Ouvrez une **Issue** sur ce dépôt GitHub
-- 💡 Consultez la section **Discussions** pour échanger avec la communauté
+
+- 📧 Ouvrez une <b>Issue</b> sur ce dépôt GitHub
+- 💡 Consultez la section <b>Discussions</b> pour échanger avec la communauté
 
 ---
 
 ## 🌟 Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
+
 - 🐛 Signaler des bugs
 - 💡 Proposer des améliorations
 - 🔧 Soumettre des Pull Requests
 
 ---
 
-<div align="center">
-  
-  **Merci d'utiliser AdZ-Vanced !**
-  
-  ⭐ Si ce projet vous est utile, n'hésitez pas à lui donner une étoile
-  
-</div>
+<b>Merci d'utiliser AdZ-Vanced !</b> ⭐ Si ce projet vous est utile, n'hésitez pas à lui donner une étoile
