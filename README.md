@@ -1,3 +1,5 @@
+[![Download](https://img.shields.io/github/v/release/x-R0b0T-x/AdZ-Vanced?label=T%C3%A9l%C3%A9charger&style=for-the-badge&logo=github)](https://github.com/x-R0b0T-x/AdZ-Vanced/releases/latest)
+
 <p align="center">
     <img src="Logo.jpg" alt="AdZ-Vanced Logo" width="200"/>
 </p>
