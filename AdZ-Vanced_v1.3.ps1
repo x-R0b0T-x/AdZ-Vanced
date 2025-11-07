@@ -1,6 +1,5 @@
 # AdZ-Vanced v1.3 - DNS Configuration Tool
 # UI Premium, Backup/Restore, Logs
-param([switch]$Debug)
 
 Set-StrictMode -Version Latest
 Add-Type -AssemblyName System.Windows.Forms
