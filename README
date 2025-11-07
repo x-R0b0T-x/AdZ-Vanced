@@ -1,135 +1,149 @@
-# 🛡️ AdZ-Vanced - Configuration DNS Professionnelle
-
-## 📖 Description
-AdZ-Vanced est un outil professionnel pour configurer facilement les serveurs DNS AdZ-Vanced sur votre ordinateur Windows. Version 1.2 avec interface moderne et fonctionnalités avancées.
-
-## ✨ Fonctionnalités principales
-- 🎨 **Interface professionnelle moderne**
-- 🔍 **Validation automatique des serveurs DNS**
-- 💾 **Sauvegarde automatique des paramètres**
-- 🔄 **Restauration en un clic**
-- 📊 **Journal d'opérations détaillé**
-- 🛡️ **Gestion sécurisée des privilèges administrateur**
+<div align="center">
+  <img src="Logo.jpg" alt="AdZ-Vanced Logo" width="200"/>
+  
+  # 🛡️ AdZ-Vanced - Configuration DNS Professionnelle
+</div>
 
 ---
 
-## 🚀 Installation et Utilisation
+## 📖 Présentation
 
-1. **Téléchargez** le fichier `AdZ-Vanced.ps1`
-2. **Clic droit** sur le fichier → **"Exécuter avec PowerShell"**
-3. **Acceptez** l'élévation des privilèges administrateur
-4. **Utilisez** l'interface graphique
+**AdZ-Vanced** est une solution professionnelle de configuration DNS pour Windows, conçue pour optimiser votre navigation en bloquant les publicités et contenus indésirables au niveau réseau. La version 1.2 offre une interface moderne et intuitive pour une gestion simplifiée de vos paramètres DNS.
 
 ---
 
-## 🖥️ Guide d'utilisation
+## ✨ Fonctionnalités Principales
 
-### 🔧 Configuration DNS AdZ-Vanced
-1. **Cliquez** sur **"🚀 INSTALLER DNS AdZ-Vanced"**
-2. **Attendez** la validation automatique des serveurs
-3. **Suivez** les opérations dans le journal
-4. **Confirmation** : "Configuration DNS AdZ-Vanced appliquée avec succès !"
-
-### 🔄 Restauration paramètres par défaut
-1. **Cliquez** sur **"🔄 RESTAURER DNS PAR DÉFAUT"**
-2. **Confirmation** : Paramètres DHCP restaurés
-3. **Alternative** : Utilisez le bouton **"💾 Sauvegarde"** pour restaurer une sauvegarde précédente
-
-### 📋 Lecture du journal
-Le journal affiche en temps réel :
-- 🟢 **Messages verts** : Opérations réussies
-- 🟡 **Messages jaunes** : Avertissements
-- 🔴 **Messages rouges** : Erreurs
-- ⚪ **Messages blancs** : Informations
+- 🖥️ **Interface Moderne** : Design épuré et ergonomique pour une expérience utilisateur optimale
+- 💎 **Validation Intelligente** : Vérification automatique de la configuration DNS
+- 💾 **Sauvegarde Automatique** : Protection de vos paramètres personnalisés
+- ♻️ **Restauration Rapide** : Retour à la configuration par défaut en un clic
+- 📋 **Journal d'Opérations** : Suivi détaillé de toutes les modifications effectuées
+- 🔐 **Gestion des Privilèges** : Contrôle sécurisé des droits administrateur
 
 ---
 
-## 🔧 Compilation vers .exe
+## 🚀 Installation et Démarrage
 
 ### Prérequis
-- Windows PowerShell 5.1+
-- Module PS2EXE
+- Windows 10/11 (64 bits)
+- Droits administrateur
+- PowerShell 5.1 ou supérieur
+
+### Procédure d'Installation
+
+1. **Téléchargez** le fichier `AdZ-Vanced.ps1`
+2. **Clic droit** sur le fichier → **Exécuter avec PowerShell**
+3. **Acceptez** l'élévation des privilèges administrateur
+4. **Lancez** l'interface graphique
 
 ---
 
-## 🔒 Sécurité et Confidentialité
+## 📚 Guide d'Utilisation
 
-### Permissions requises
-- **Administrateur** : Pour modifier les paramètres réseau
-- **Internet** : Pour télécharger le logo et tester la connectivité
-- **Système** : Pour accéder aux interfaces réseau
+### ⚙️ Configuration DNS AdZ-Vanced
 
-### Données collectées
-- **AUCUNE** : L'application ne collecte aucune donnée personnelle
-- **Local uniquement** : Toutes les opérations sont locales
-- **Logs temporaires** : Fichiers de log stockés dans `%TEMP%`
+1. Cliquez sur **"⚙️ INSTALLER DNS AdZ-Vanced"**
+2. Patientez pendant la validation automatique des serveurs
+3. Suivez les instructions affichées dans le journal d'opérations
+4. Confirmation : *"Configuration DNS AdZ-Vanced appliquée avec succès !"*
 
-### Sauvegarde
-- **Fichier** : `%TEMP%\AdZvanced_DNS_Backup.json`
-- **Contenu** : Configuration DNS précédente
-- **Utilisation** : Restauration en cas de problème
+### 🔄 Restauration des Paramètres par Défaut
 
----
+1. Cliquez sur **"🔄 RESTAURER DNS Par Défaut"**
+2. Confirmez l'opération de restauration
+3. Vérifiez le message de confirmation dans le journal
 
-## 🌐 Serveurs DNS AdZ-Vanced
+### 💾 Gestion des Sauvegardes
 
-### IPv4
-- **Primaire** : `45.90.28.0`
-- **Secondaire** : `45.90.30.0`
-
-### IPv6
-- **Primaire** : `2a07:a8c0::a8:3732`
-- **Secondaire** : `2a07:a8c1::a8:3732`
-
-### Avantages
-- 🚫 **Blocage publicités** et trackers
-- 🏃 **Navigation plus rapide**
-- 🛡️ **Protection malware** et phishing
-- 🌍 **Accès contenu géo-bloqué**
+- **Sauvegarde** : Les paramètres sont automatiquement sauvegardés avant chaque modification
+- **Restauration** : Possibilité de restaurer une sauvegarde antérieure depuis le menu
 
 ---
 
-## 🆘 Dépannage
+## 🔧 Configuration Technique
 
-### L'application ne se lance pas
-- **Vérifiez** : Windows PowerShell 5.1+ installé
-- **Exécutez** en tant qu'administrateur
-- **Débloquez** le fichier si téléchargé (Propriétés → Débloquer)
+### Serveurs DNS AdZ-Vanced
 
-### Erreur "Aucun serveur DNS accessible"
-- **Vérifiez** votre connexion Internet
-- **Testez** manuellement : `ping 45.90.28.219`
-- **Désactivez** temporairement antivirus/firewall
+| Type | Adresse IP | Fonction |
+|------|-----------|----------|
+| DNS Primaire | `185.228.168.168` | Serveur principal avec filtrage |
+| DNS Secondaire | `185.228.169.168` | Serveur de secours |
 
-### DNS non appliqués
-- **Redémarrez** l'application en tant qu'administrateur
-- **Vérifiez** : `ipconfig /all` dans l'invite de commande
-- **Videz** le cache DNS : `ipconfig /flushdns`
+### Adaptateurs Réseau Pris en Charge
 
-### Restauration impossible
-- **Utilisez** le bouton "Sauvegarde" pour restaurer
-- **Méthode manuelle** : 
-  1. Panneau de configuration → Réseau
-  2. Propriétés de la carte réseau
-  3. IPv4 → Propriétés → "Obtenir automatiquement"
+- Ethernet
+- Wi-Fi
+- Connexions VPN
+- Adaptateurs virtuels
 
 ---
 
-## 💝 Support et Donations
+## 🛡️ Sécurité et Confidentialité
 
-### Soutenir le projet
-- 💳 **PayPal** : https://www.paypal.com/ncp/payment/KKAR2U9ZET9KY
-- ☕ **Tipeee** : Bouton dans l'application
-- 📱 **Telegram** : Communauté @adzvanced
-
-### Contact
-- **Bugs** : Rapportez via Telegram
-- **Suggestions** : Communauté Telegram
-- **Support** : Documentation et FAQ
+- ✅ **Aucune collecte de données** personnelles
+- ✅ **Code source transparent** et vérifiable
+- ✅ **Exécution locale** : aucune connexion externe requise
+- ✅ **Respect de la vie privée** : configuration 100% locale
 
 ---
 
-## 📜 Licence
-© 2025 x-R0b0T-x - Tous droits réservés
+## ⚠️ Dépannage
 
-**AdZ-Vanced - Pour une navigation plus saine et rapide !** 🚀
+### Problèmes Courants
+
+**L'interface ne se lance pas**
+- Vérifiez que PowerShell est bien en version 5.1 minimum : `$PSVersionTable.PSVersion`
+- Assurez-vous d'exécuter le script avec les droits administrateur
+
+**La configuration DNS ne s'applique pas**
+- Désactivez temporairement votre antivirus
+- Vérifiez que l'adaptateur réseau est correctement détecté
+- Consultez le journal d'opérations pour plus de détails
+
+**Message d'erreur lors de la sauvegarde**
+- Vérifiez l'espace disque disponible
+- Assurez-vous que le dossier de sauvegarde est accessible
+
+---
+
+## 📝 Notes de Version
+
+### Version 1.2 (Actuelle)
+- Interface graphique modernisée
+- Amélioration de la validation DNS
+- Optimisation des performances
+- Correction de bugs mineurs
+
+---
+
+## 📄 Licence
+
+Ce projet est distribué sous licence libre. Vous êtes autorisé à l'utiliser, le modifier et le distribuer librement.
+
+---
+
+## 💬 Support et Contact
+
+Pour toute question, suggestion ou signalement de bug :
+- 📧 Ouvrez une **Issue** sur ce dépôt GitHub
+- 💡 Consultez la section **Discussions** pour échanger avec la communauté
+
+---
+
+## 🌟 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+- 🐛 Signaler des bugs
+- 💡 Proposer des améliorations
+- 🔧 Soumettre des Pull Requests
+
+---
+
+<div align="center">
+  
+  **Merci d'utiliser AdZ-Vanced !**
+  
+  ⭐ Si ce projet vous est utile, n'hésitez pas à lui donner une étoile
+  
+</div>
