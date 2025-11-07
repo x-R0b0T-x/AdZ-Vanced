@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/x-R0b0T-x/AdZ-Vanced/main/Logo.jpg" alt="AdZ-Vanced Logo" width="200"/>
+    <img src="Logo.jpg" alt="AdZ-Vanced Logo" width="200"/>
 </p>
 <p align="center">
   <b>🛡️ AdZ-Vanced - Configuration DNS Professionnelle</b>
