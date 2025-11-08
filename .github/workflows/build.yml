@@ -23,7 +23,7 @@ jobs:
     - name: Build EXE
       run: |
         Import-Module ps2exe
-        ps2exe -inputFile "AdZ-Vanced_v1.3.ps1" -outputFile "AdZ-Vanced.exe" -iconFile "logo.ico" -noConsole -title "AdZ-Vanced v1.3" -version "1.3.0.0" -company "KontacktzBot" -product "AdZ-Vanced" -copyright "© 2025 KontacktzBot"
+        ps2exe -inputFile "AdZ-Vanced_v1.4_PREMIUM.ps1" -outputFile "AdZ-Vanced.exe" -iconFile "logo.ico" -noConsole -title "AdZ-Vanced v1.3" -version "1.3.0.0" -company "KontacktzBot" -product "AdZ-Vanced" -copyright "© 2025 KontacktzBot"
       shell: powershell
       
     - name: Upload EXE artifact
