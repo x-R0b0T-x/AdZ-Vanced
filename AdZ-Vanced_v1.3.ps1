@@ -283,112 +283,232 @@ function Apply-AdZvancedDNS {
 
 }
 
-# === INTERFACE PRINCIPALE ===
+
+
+# ========================================
+# INTERFACE UTILISATEUR PRINCIPALE
+# ========================================
+
+# Création du formulaire principal
 $form = New-Object System.Windows.Forms.Form
 $form.Text = "$($script:Config.AppName) v$($script:Config.Version)"
-$form.Size = New-Object System.Drawing.Size(700, 850)
+$form.Size = New-Object System.Drawing.Size(1024, 768)
 $form.StartPosition = 'CenterScreen'
-$form.BackColor = $script:Colors.Black
 $form.FormBorderStyle = 'FixedDialog'
 $form.MaximizeBox = $false
-$form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
+$form.BackColor = [System.Drawing.Color]::FromArgb(20, 25, 45)
 
-# Logo
-try {
-    $logoPath = Join-Path $script:Config.AppDataDir 'Logo.jpg'
-    if (-not (Test-Path $logoPath)) {
-        $webClient = New-Object System.Net.WebClient
-        $webClient.DownloadFile($script:Config.LogoUrl, $logoPath)
-    }
-    $logo = New-Object System.Windows.Forms.PictureBox
-    $logo.Size = New-Object System.Drawing.Size(200, 200)
-    $logo.Location = New-Object System.Drawing.Point(250, 20)
-    $logo.SizeMode = 'StretchImage'
-    $logo.Image = [System.Drawing.Image]::FromFile($logoPath)
-    $form.Controls.Add($logo)
-} catch {
-    Write-Log "Erreur chargement logo : $($_.Exception.Message)" "ERROR"
-}
-
-# Titre
-$title = New-Object System.Windows.Forms.Label
-$title.Text = "$($script:Config.AppName) v$($script:Config.Version)"
-$title.Location = New-Object System.Drawing.Point(0, 240)
-$title.Size = New-Object System.Drawing.Size(700, 40)
-$title.TextAlign = 'MiddleCenter'
-$title.ForeColor = $script:Colors.White
-$title.Font = New-Object System.Drawing.Font('Segoe UI', 18, [System.Drawing.FontStyle]::Bold)
-$form.Controls.Add($title)
-
-# Label de statut
-$script:txtStatus = New-Object System.Windows.Forms.Label
-$script:txtStatus.Location = New-Object System.Drawing.Point(50, 300)
-$script:txtStatus.Size = New-Object System.Drawing.Size(600, 80)
-$script:txtStatus.TextAlign = 'MiddleCenter'
-$script:txtStatus.ForeColor = $script:Colors.Gray
-$script:txtStatus.Font = New-Object System.Drawing.Font('Segoe UI', 11)
-$script:txtStatus.Text = "Prêt à configurer vos DNS"
-$form.Controls.Add($script:txtStatus)
-
-# Position Y pour les boutons
-$yPos = 400
-
-# Bouton Appliquer DNS
-$btnApply = New-ModernButton -Text "Appliquer DNS AdZ-Vanced" -Location (New-Object System.Drawing.Point(200, $yPos)) -Size (New-Object System.Drawing.Size(300, 50)) -BackColor $script:Colors.Purple -ForeColor $script:Colors.White
-$btnApply.Add_Click({ Apply-AdZvancedDNS })
-$form.Controls.Add($btnApply)
-$yPos += 70
-
-# Bouton Restaurer
-$btnRestore = New-ModernButton -Text "Restaurer sauvegarde" -Location (New-Object System.Drawing.Point(200, $yPos)) -Size (New-Object System.Drawing.Size(300, 50)) -BackColor $script:Colors.GrayDark -ForeColor $script:Colors.White
-$btnRestore.Add_Click({ Restore-DNSBackup })
-$form.Controls.Add($btnRestore)
-$yPos += 70
-
-# Bouton DNS par défaut
-$btnDefault = New-ModernButton -Text "DNS par défaut (DHCP)" -Location (New-Object System.Drawing.Point(200, $yPos)) -Size (New-Object System.Drawing.Size(300, 50)) -BackColor $script:Colors.GrayDark -ForeColor $script:Colors.White
-$btnDefault.Add_Click({ Restore-DefaultDNS })
-$form.Controls.Add($btnDefault)
-$yPos += 70
-
-# Bouton Voir DNS actuels
-$btnCurrent = New-ModernButton -Text "Voir DNS actuels" -Location (New-Object System.Drawing.Point(200, $yPos)) -Size (New-Object System.Drawing.Size(300, 50)) -BackColor $script:Colors.GrayDark -ForeColor $script:Colors.White
-$btnCurrent.Add_Click({ Show-CurrentDNS })
-$form.Controls.Add($btnCurrent)
-$yPos += 70
-
-# Bouton Ouvrir logs
-$btnLogs = New-ModernButton -Text "Ouvrir dossier Logs" -Location (New-Object System.Drawing.Point(200, $yPos)) -Size (New-Object System.Drawing.Size(300, 50)) -BackColor $script:Colors.GrayDark -ForeColor $script:Colors.White
-$btnLogs.Add_Click({ Open-LogsFolder })
-$form.Controls.Add($btnLogs)
-
-# Liens en bas de page
-$linkPayPal = New-Object System.Windows.Forms.LinkLabel
-$linkPayPal.Text = "☕ Faire un don PayPal"
-$linkPayPal.Location = New-Object System.Drawing.Point(50, 770)
-$linkPayPal.Size = New-Object System.Drawing.Size(200, 25)
-$linkPayPal.LinkColor = $script:Colors.Purple
-$linkPayPal.Font = New-Object System.Drawing.Font('Segoe UI', 9)
-$linkPayPal.Add_Click({ Start-Process $script:Config.DonationPayPal })
-$form.Controls.Add($linkPayPal)
-
-$linkTipeee = New-Object System.Windows.Forms.LinkLabel
-$linkTipeee.Text = "☕ Faire un don Tipeee"
-$linkTipeee.Location = New-Object System.Drawing.Point(260, 770)
-$linkTipeee.Size = New-Object System.Drawing.Size(200, 25)
-$linkTipeee.LinkColor = $script:Colors.Purple
-$linkTipeee.Font = New-Object System.Drawing.Font('Segoe UI', 9)
-$linkTipeee.Add_Click({ Start-Process $script:Config.DonationTipeee })
-$form.Controls.Add($linkTipeee)
-
-$linkTelegram = New-Object System.Windows.Forms.LinkLabel
-$linkTelegram.Text = "💬 Rejoindre Telegram"
-$linkTelegram.Location = New-Object System.Drawing.Point(470, 770)
-$linkTelegram.Size = New-Object System.Drawing.Size(180, 25)
-$linkTelegram.LinkColor = $script:Colors.Purple
-$linkTelegram.Font = New-Object System.Drawing.Font('Segoe UI', 9)
-$linkTelegram.Add_Click({ Start-Process $script:Config.TelegramUrl })
-$form.Controls.Add($linkTelegram)
+    # Titre principal
+    $titleLabel = New-Object System.Windows.Forms.Label
+    $titleLabel.Text = $script:Config.AppName
+    $titleLabel.Font = New-Object System.Drawing.Font('Segoe UI', 32, [System.Drawing.FontStyle]::Bold)
+    $titleLabel.ForeColor = [System.Drawing.Color]::White
+    $titleLabel.AutoSize = $false
+    $titleLabel.Size = New-Object System.Drawing.Size(1024, 50)
+    $titleLabel.Location = New-Object System.Drawing.Point(0, 20)
+    $titleLabel.TextAlign = 'MiddleCenter'
+    $form.Controls.Add($titleLabel)
+    
+    # Version
+    $versionLabel = New-Object System.Windows.Forms.Label
+    $versionLabel.Text = "v$($script:Config.Version)"
+    $versionLabel.Font = New-Object System.Drawing.Font('Segoe UI', 12)
+    $versionLabel.ForeColor = [System.Drawing.Color]::LightGray
+    $versionLabel.AutoSize = $false
+    $versionLabel.Size = New-Object System.Drawing.Size(1024, 25)
+    $versionLabel.Location = New-Object System.Drawing.Point(0, 75)
+    $versionLabel.TextAlign = 'MiddleCenter'
+    $form.Controls.Add($versionLabel)
+    
+    # Logo (Shield avec A)
+    $logoLabel = New-Object System.Windows.Forms.Label
+    $logoLabel.Text = "🛡️ A"
+    $logoLabel.Font = New-Object System.Drawing.Font('Segoe UI', 48, [System.Drawing.FontStyle]::Bold)
+    $logoLabel.ForeColor = [System.Drawing.Color]::FromArgb(147, 51, 234)
+    $logoLabel.AutoSize = $false
+    $logoLabel.Size = New-Object System.Drawing.Size(1024, 80)
+    $logoLabel.Location = New-Object System.Drawing.Point(0, 110)
+    $logoLabel.TextAlign = 'MiddleCenter'
+    $form.Controls.Add($logoLabel)
+    
+    # Panneau de message informatif
+    $messagePanel = New-Object System.Windows.Forms.Panel
+    $messagePanel.Size = New-Object System.Drawing.Size(900, 60)
+    $messagePanel.Location = New-Object System.Drawing.Point(62, 210)
+    $messagePanel.BorderStyle = 'FixedSingle'
+    $messagePanel.BackColor = [System.Drawing.Color]::FromArgb(30, 35, 55)
+    $form.Controls.Add($messagePanel)
+    
+    $script:txtStatus = New-Object System.Windows.Forms.Label
+    $script:txtStatus.Text = "Panneau de message informatif : Prêt à optimizze votre connexion."
+    $script:txtStatus.Font = New-Object System.Drawing.Font('Segoe UI', 11)
+    $script:txtStatus.ForeColor = [System.Drawing.Color]::LightCyan
+    $script:txtStatus.AutoSize = $false
+    $script:txtStatus.Size = New-Object System.Drawing.Size(880, 50)
+    $script:txtStatus.Location = New-Object System.Drawing.Point(10, 5)
+    $script:txtStatus.TextAlign = 'MiddleLeft'
+    $messagePanel.Controls.Add($script:txtStatus)
+    
+    # Bouton INSTALLER DNS
+    $btnInstall = New-Object System.Windows.Forms.Button
+    $btnInstall.Text = "INSTALLER DNS"
+    $btnInstall.Size = New-Object System.Drawing.Size(400, 50)
+    $btnInstall.Location = New-Object System.Drawing.Point(112, 290)
+    $btnInstall.BackColor = [System.Drawing.Color]::FromArgb(147, 51, 234)
+    $btnInstall.ForeColor = [System.Drawing.Color]::White
+    $btnInstall.Font = New-Object System.Drawing.Font('Segoe UI', 14, [System.Drawing.FontStyle]::Bold)
+    $btnInstall.FlatStyle = 'Flat'
+    $btnInstall.FlatAppearance.BorderSize = 0
+    $btnInstall.Cursor = 'Hand'
+    $btnInstall.Add_Click({
+        Apply-AdZvancedDNS
+    })
+    $form.Controls.Add($btnInstall)
+    
+    # Bouton RESTAURER DNS
+    $btnRestore = New-Object System.Windows.Forms.Button
+    $btnRestore.Text = "RESTAURER DNS"
+    $btnRestore.Size = New-Object System.Drawing.Size(400, 50)
+    $btnRestore.Location = New-Object System.Drawing.Point(512, 290)
+    $btnRestore.BackColor = [System.Drawing.Color]::FromArgb(147, 51, 234)
+    $btnRestore.ForeColor = [System.Drawing.Color]::White
+    $btnRestore.Font = New-Object System.Drawing.Font('Segoe UI', 14, [System.Drawing.FontStyle]::Bold)
+    $btnRestore.FlatStyle = 'Flat'
+    $btnRestore.FlatAppearance.BorderSize = 0
+    $btnRestore.Cursor = 'Hand'
+    $btnRestore.Add_Click({
+        Restore-DNSBackup
+    })
+    $form.Controls.Add($btnRestore)
+    
+    # Zone de Logs
+    $logsLabel = New-Object System.Windows.Forms.Label
+    $logsLabel.Text = "Logs :"
+    $logsLabel.Font = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Bold)
+    $logsLabel.ForeColor = [System.Drawing.Color]::White
+    $logsLabel.AutoSize = $true
+    $logsLabel.Location = New-Object System.Drawing.Point(62, 360)
+    $form.Controls.Add($logsLabel)
+    
+    $script:txtLogs = New-Object System.Windows.Forms.TextBox
+    $script:txtLogs.Multiline = $true
+    $script:txtLogs.ScrollBars = 'Vertical'
+    $script:txtLogs.Size = New-Object System.Drawing.Size(900, 200)
+    $script:txtLogs.Location = New-Object System.Drawing.Point(62, 390)
+    $script:txtLogs.BackColor = [System.Drawing.Color]::FromArgb(15, 20, 30)
+    $script:txtLogs.ForeColor = [System.Drawing.Color]::LightGray
+    $script:txtLogs.Font = New-Object System.Drawing.Font('Consolas', 9)
+    $script:txtLogs.ReadOnly = $true
+    $script:txtLogs.BorderStyle = 'FixedSingle'
+    $form.Controls.Add($script:txtLogs)
+    
+    # Panel pour les boutons du bas (centrés)
+    $bottomPanel = New-Object System.Windows.Forms.Panel
+    $bottomPanel.Size = New-Object System.Drawing.Size(900, 60)
+    $bottomPanel.Location = New-Object System.Drawing.Point(62, 610)
+    $bottomPanel.BackColor = [System.Drawing.Color]::Transparent
+    $form.Controls.Add($bottomPanel)
+    
+    # Calcul pour centrer les 6 boutons (150px chacun + 10px espacement)
+    $buttonWidth = 140
+    $buttonSpacing = 10
+    $totalWidth = (6 * $buttonWidth) + (5 * $buttonSpacing)
+    $startX = (900 - $totalWidth) / 2
+    
+    # Bouton Donation
+    $btnDonation = New-Object System.Windows.Forms.Button
+    $btnDonation.Text = "♥ Donation"
+    $btnDonation.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnDonation.Location = New-Object System.Drawing.Point($startX, 5)
+    $btnDonation.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnDonation.ForeColor = [System.Drawing.Color]::White
+    $btnDonation.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnDonation.FlatStyle = 'Flat'
+    $btnDonation.Cursor = 'Hand'
+    $btnDonation.Add_Click({
+        Start-Process 'https://www.paypal.com/ncp/payment/MGLWSKGF79JN8'
+    })
+    $bottomPanel.Controls.Add($btnDonation)
+    
+    # Bouton Telegram
+    $btnTelegram = New-Object System.Windows.Forms.Button
+    $btnTelegram.Text = "✉ Telegram"
+    $btnTelegram.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnTelegram.Location = New-Object System.Drawing.Point(($startX + $buttonWidth + $buttonSpacing), 5)
+    $btnTelegram.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnTelegram.ForeColor = [System.Drawing.Color]::White
+    $btnTelegram.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnTelegram.FlatStyle = 'Flat'
+    $btnTelegram.Cursor = 'Hand'
+    $btnTelegram.Add_Click({
+        [System.Windows.Forms.MessageBox]::Show("Rejoignez notre communauté Telegram pour le support et les mises à jour!", "Telegram", 'OK', 'Information')
+    })
+    $bottomPanel.Controls.Add($btnTelegram)
+    
+    # Bouton Info
+    $btnInfo = New-Object System.Windows.Forms.Button
+    $btnInfo.Text = "i Info"
+    $btnInfo.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnInfo.Location = New-Object System.Drawing.Point(($startX + (2 * ($buttonWidth + $buttonSpacing))), 5)
+    $btnInfo.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnInfo.ForeColor = [System.Drawing.Color]::White
+    $btnInfo.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnInfo.FlatStyle = 'Flat'
+    $btnInfo.Cursor = 'Hand'
+    $btnInfo.Add_Click({
+        $infoMsg = "$($script:Config.AppName) v$($script:Config.Version)`n`nOutil de configuration DNS avancé`n© 2024 - Tous droits réservés`n`nDNS utilisés :`nPrimaire IPv4: $($script:Config.DNSIPv4Primary)`nSecondaire IPv4: $($script:Config.DNSIPv4Secondary)`nPrimaire IPv6: $($script:Config.DNSIPv6Primary)`nSecondaire IPv6: $($script:Config.DNSIPv6Secondary)"
+        [System.Windows.Forms.MessageBox]::Show($infoMsg, "Informations", 'OK', 'Information')
+    })
+    $bottomPanel.Controls.Add($btnInfo)
+    
+    # Bouton Voir DNS
+    $btnViewDNS = New-Object System.Windows.Forms.Button
+    $btnViewDNS.Text = "🔍 Voir DNS"
+    $btnViewDNS.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnViewDNS.Location = New-Object System.Drawing.Point(($startX + (3 * ($buttonWidth + $buttonSpacing))), 5)
+    $btnViewDNS.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnViewDNS.ForeColor = [System.Drawing.Color]::White
+    $btnViewDNS.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnViewDNS.FlatStyle = 'Flat'
+    $btnViewDNS.Cursor = 'Hand'
+    $btnViewDNS.Add_Click({
+        Start-Process "powershell.exe" -ArgumentList "-NoProfile", "-Command", "ipconfig /all | Select-String 'DNS' | Out-String | Out-GridView -Title 'Configuration DNS actuelle' -Wait"
+    })
+    $bottomPanel.Controls.Add($btnViewDNS)
+    
+    # Bouton Ouvrir Logs
+    $btnOpenLogs = New-Object System.Windows.Forms.Button
+    $btnOpenLogs.Text = "📄 Ouvrir Logs"
+    $btnOpenLogs.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnOpenLogs.Location = New-Object System.Drawing.Point(($startX + (4 * ($buttonWidth + $buttonSpacing))), 5)
+    $btnOpenLogs.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnOpenLogs.ForeColor = [System.Drawing.Color]::White
+    $btnOpenLogs.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnOpenLogs.FlatStyle = 'Flat'
+    $btnOpenLogs.Cursor = 'Hand'
+    $btnOpenLogs.Add_Click({
+        if (Test-Path $script:Config.LogFile) {
+            Start-Process "notepad.exe" $script:Config.LogFile
+        } else {
+            [System.Windows.Forms.MessageBox]::Show("Aucun fichier de logs trouvé.", "Logs", 'OK', 'Warning')
+        }
+    })
+    $bottomPanel.Controls.Add($btnOpenLogs)
+    
+    # Bouton Fermer
+    $btnClose = New-Object System.Windows.Forms.Button
+    $btnClose.Text = "✖ Fermer"
+    $btnClose.Size = New-Object System.Drawing.Size($buttonWidth, 45)
+    $btnClose.Location = New-Object System.Drawing.Point(($startX + (5 * ($buttonWidth + $buttonSpacing))), 5)
+    $btnClose.BackColor = [System.Drawing.Color]::FromArgb(50, 55, 75)
+    $btnClose.ForeColor = [System.Drawing.Color]::White
+    $btnClose.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+    $btnClose.FlatStyle = 'Flat'
+    $btnClose.Cursor = 'Hand'
+    $btnClose.Add_Click({
+        $form.Close()
+    })
+    $bottomPanel.Controls.Add($btnClose)
 
 Write-Log "Interface initialisée avec succès"
-$form.ShowDialog() | Out-Null
+$form.ShowDialog() | Out-Null300
