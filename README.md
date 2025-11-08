@@ -1,16 +1,14 @@
-[![Download](https://img.shields.io/github/v/release/x-R0b0T-x/AdZ-Vanced?label=T%C3%A9l%C3%A9charger&style=for-the-badge&logo=github)](https://github.com/x-R0b0T-x/AdZ-Vanced/releases/latest)
-
 <p align="center">
 <img src="logo.png" alt="AdZ-Vanced Logo" width="300"/></p>
 <p align="center">
-  <b>🛡️ AdZ-Vanced - Configuration DNS Professionnelle</b>
+  <b>🛡️ AdZ-Vanced, Les DNS pour un surf sain et rapide</b>
 </p>
 
 ---
 
 ## 📖 Présentation
 
-AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, conçue pour optimiser votre navigation en bloquant les publicités et contenus indésirables au niveau réseau. La version 1.2 offre une interface moderne et intuitive pour une gestion simplifiée de vos paramètres DNS.
+AdZ-Vanced est une solution de configuration DNS pour Windows, conçue pour optimiser votre navigation en bloquant les publicités et contenus indésirables au niveau réseau. La version 1.2 offre une interface moderne et intuitive pour une gestion simplifiée de vos paramètres DNS.
 
 ---
 
@@ -35,10 +33,9 @@ AdZ-Vanced est une solution professionnelle de configuration DNS pour Windows, c
 
 ### Procédure d'Installation
 
-1. <b>Téléchargez</b> le fichier `AdZ-Vanced.ps1`
-2. <b>Clic droit</b> sur le fichier → <b>Exécuter avec PowerShell</b>
-3. <b>Acceptez</b> l'élévation des privilèges administrateur
-4. <b>Lancez</b> l'interface graphique
+1. <b>Téléchargez</b> le fichier `AdZ-Vanced.exe`
+2. <b>Doucle Clic</b> sur le fichier → <b>AdZ-Vanced.exe</b>
+3. <b>Lancez</b> l'interface graphique
 
 ---
 
