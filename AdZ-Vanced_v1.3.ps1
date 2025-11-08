@@ -77,7 +77,7 @@ function Update-StatusText {
         default   { $script:Colors.Green }
     }
     if ($null -ne $script:txtStatus) {
-        $script:txtStatus.SelectionStart = $script:txtStatus.TextLength
+        $script:txtStatus.SelectionStart = $script:txtStatus.Text.Length
         $script:txtStatus.SelectionColor = $colorObj
         $script:txtStatus.AppendText("$Message`r`n")
         $script:txtStatus.ScrollToCaret()
