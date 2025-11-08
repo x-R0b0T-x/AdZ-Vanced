@@ -322,7 +322,7 @@ $form.BackColor = [System.Drawing.Color]::FromArgb(20, 25, 45)
     
     # Logo (Shield avec A)
     $logoLabel = New-Object System.Windows.Forms.Label
-    $logoLabel.Text = "🛡️ A"
+        $logoLabel.Text = "[    A    ]"
     $logoLabel.Font = New-Object System.Drawing.Font('Segoe UI', 48, [System.Drawing.FontStyle]::Bold)
     $logoLabel.ForeColor = [System.Drawing.Color]::FromArgb(147, 51, 234)
     $logoLabel.AutoSize = $false
@@ -511,4 +511,4 @@ $form.BackColor = [System.Drawing.Color]::FromArgb(20, 25, 45)
     $bottomPanel.Controls.Add($btnClose)
 
 Write-Log "Interface initialisée avec succès"
-$form.ShowDialog() | Out-Null300
+$form.ShowDialog() | Out-Null
