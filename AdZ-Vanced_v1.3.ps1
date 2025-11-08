@@ -65,7 +65,6 @@ function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $logEntry = "{0} [{1}] {2}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $Level, $Message
     Add-Content -Path $script:Config.LogFile -Value $logEntry
-    if ($Debug) { Write-Host $logEntry }
 }
 
 function Update-StatusText {
