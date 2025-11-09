@@ -1,0 +1,109 @@
+<Window x:Class="AdZVancedApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AdZ-Vanced"
+        Height="870" Width="750"
+        Background="{StaticResource MainGradient}"
+        Icon="logo.ico">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="MainGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#28243A" Offset="0.0"/>
+            <GradientStop Color="#221639" Offset="1.0"/>
+        </LinearGradientBrush>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="17"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Margin" Value="6,0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#4B437E"/>
+        </Style>
+        <DropShadowEffect x:Key="LogoShadow" ShadowDepth="0" BlurRadius="34" Color="#000000" Opacity="0.42"/>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Background="#1B1724" Opacity="0.94" Padding="28">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- En-tête -->
+                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,6,0,12">
+                    <TextBlock Text="AdZ-Vanced" FontSize="42" FontWeight="Bold"
+                               Foreground="White" HorizontalAlignment="Center"/>
+                    <TextBlock Text="v1.3" FontSize="14" Foreground="#C0BFC2"
+                               HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                </StackPanel>
+
+                <!-- Corps principal -->
+                <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <!-- Logo Chad -->
+                    <Border Width="210" Height="210" Background="#0D0B10"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"
+                            CornerRadius="44" Effect="{StaticResource LogoShadow}">
+                        <Image Source="logo.png" Stretch="Uniform" Margin="10"/>
+                    </Border>
+
+                    <!-- Bloc d'information -->
+                    <Border Background="#241E2A" Padding="12" Width="520" CornerRadius="9" Margin="0,14,0,0">
+                        <TextBlock Text="Panneau de message informatif : Prêt à optimiser votre connexion."
+                                   Foreground="#E6E6E6" TextWrapping="Wrap"
+                                   TextAlignment="Center" FontSize="15"/>
+                    </Border>
+
+                    <!-- Boutons -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
+                        <Button Style="{StaticResource RoundedButtonStyle}" Content="INSTALLER DNS"
+                                Background="#8E5CFF" BorderThickness="0" Padding="8"/>
+                        <Button Style="{StaticResource RoundedButtonStyle}" Content="RESTAURER DNS"
+                                Background="#3A3543" BorderThickness="0" Padding="8"/>
+                    </StackPanel>
+
+                    <!-- Zone de logs -->
+                    <Border Background="#0B0A0E" Padding="12" Width="560" Height="150" Margin="0,16,0,0" CornerRadius="8">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel>
+                                <TextBlock Text="LOG : Initialisation du système... OK"
+                                           Foreground="#CFCFCF" FontFamily="Consolas" FontSize="13" Margin="0,2"/>
+                                <TextBlock Text="LOG : Vérification du système"
+                                           Foreground="#CFCFCF" FontFamily="Consolas" FontSize="13" Margin="0,2"/>
+                                <TextBlock Text="LOG : Vérification des fichiers... Terminée"
+                                           Foreground="#CFCFCF" FontFamily="Consolas" FontSize="13" Margin="0,2"/>
+                                <TextBlock Text="LOG : En attente de la commande..."
+                                           Foreground="#CFCFCF" FontFamily="Consolas" FontSize="13" Margin="0,2"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Border>
+                </StackPanel>
+
+                <!-- Footer Chad -->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Donation" Margin="6,0"/>
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Telegram" Margin="6,0"/>
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Info" Margin="6,0"/>
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Voir DNS" Margin="6,0"/>
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Ouvrir Logs" Margin="6,0"/>
+                    <Button Style="{StaticResource RoundedButtonStyle}" Content="Fermer" Margin="6,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
